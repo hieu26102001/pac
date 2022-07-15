@@ -50,14 +50,14 @@ function Timer(callback, delay) {
 }
 
 function oneAxe() { 
-	return Math.floor( Math.random() * ( 2 - 1 + 1 ) + 1 );
+	return Math.floor( Math.random() *  2  + 1 );
 }
 function anyGoodIdea() { 
-	return Math.floor( Math.random() * ( 4 - 1 + 1 ) + 1 );
+	return Math.floor( Math.random() *  4 + 1 );
 }
-function whatsYourProblem() { 
-	return Math.floor( Math.random() * 6  + 1 );
-}
+// function whatsYourProblem() { 
+// 	return Math.floor( Math.random() * 6  + 1 );
+// }
 
 CanvasRenderingContext2D.prototype.roundRect = function(sx, sy, ex, ey, r) {
     var r2d = Math.PI/180;

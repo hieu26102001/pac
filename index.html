@@ -20,11 +20,7 @@
 	<script type="text/javascript" src="js/ghostState.js"></script>
 	<script type="text/javascript">
 
-		// function simulateKeyup(code) { 
-		// 	var e = jQuery.Event("keyup");
-		// 	e.keyCode = code;
-		// 	jQuery('body').trigger(e);
-		// }
+
 		function simulateKeydown(code) {
 			var e = jQuery.Event("keydown");
 			e.keyCode = code;
@@ -32,50 +28,19 @@
 		}
 
 		$(document).ready(function () {
-			//$.mobile.loading().hide();
-			// loadAllSound();
-
-			HELP_TIMER = setInterval('blinkHelp()', HELP_DELAY);
 
 			initHome();
 
-			$("#start-button").on("click touchstart", function (e) {
 
-			});
-			$("#control-up, #control-up-second, #control-up-big").on("mousedown touchstart", function (e) {
-				e.preventDefault();
-				simulateKeydown(38);
-				// simulateKeyup(13);
-			});
-			$("#control-down, #control-down-second, #control-down-big").on("mousedown touchstart", function (e) {
-				e.preventDefault();
-				simulateKeydown(40);
-				// simulateKeyup(13);
-			});
-			$("#control-left, #control-left-big").on("mousedown touchstart", function (e) {
-				e.preventDefault();
-				simulateKeydown(37);
-				// simulateKeyup(13);
-			});
-			$("#control-right, #control-right-big").on("mousedown touchstart", function (e) {
-				e.preventDefault();
-				simulateKeydown(39);
-				// simulateKeyup(13);
-			});
-
-
-			$("body").keyup(function (e) {
-				KEYDOWN = false;
-			});
 
 			$("body").keydown(function (e) {
 
 				if (HOME) {
 					initGhostState();
 					initGame(true);
-
 				} else {
-					//if (!KEYDOWN) { 
+					
+
 					KEYDOWN = true;
 					if (PACMAN_DEAD && !LOCK) {
 						erasePacman();
@@ -86,7 +51,7 @@
 						resetGhosts();
 						drawGhosts();
 						moveGhosts();
-
+						// StateGhost();
 						blinkSuperBubbles();
 
 					} else if (e.keyCode >= 37 && e.keyCode <= 40 && !PAUSE && !PACMAN_DEAD && !LOCK) {
@@ -114,12 +79,14 @@
 					} else if (GAMEOVER) {
 						initHome();
 					}
-					//}
+
 				}
 			});
 		});
-	</script>
+		var pacmanX = PACMAN_POSITION_X;
+		var pacmanY = PACMAN_POSITION_Y;
 
+	</script>
 </head>
 
 <body>
@@ -172,17 +139,25 @@
 		<h4>Ghost State</h4>
 		<canvas id="canvas-ghost-state"></canvas>
 		<div id="ghost">
-			<div>
+			<div id="name">
 				<canvas id="canvas-state-blinky"></canvas>
+				<h4 id ="1"></h4>
+				<div id="blinky"></div>
 			</div>
-			<div>
+			<div id="name">
 				<canvas id="canvas-state-pinky"></canvas>
+				<h4 id ="2"></h4>
+				<div id="pinky"></div>
 			</div>
-			<div>
+			<div id="name">
 				<canvas id="canvas-state-inky"></canvas>
+				<h4 id ="3"></h4>
+				<div id="inky"></div>
 			</div>
-			<div>
+			<div id="name">
 				<canvas id="canvas-state-clyde"></canvas>
+				<h4 id ="4"></h4>
+				<div id="clyde"></div>
 			</div>
 		</div>
 	</div>

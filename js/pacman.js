@@ -134,7 +134,7 @@ function movePacman(direction) {
 						
 			var speedUp = 0;
 			if (quarterChangeDirection) { 
-				speedUp = 0;
+				speedUp = 6;
 			}
 			
 			if ( PACMAN_DIRECTION === 1 ) { 
@@ -325,18 +325,14 @@ function testBubblesPacman() {
 				if ( type === "s" ) { 
 					setSuperBubbleOnXY( testX, testY, "1" );
 					score( SCORE_SUPER_BUBBLE );
-					// playEatPillSound();
 					affraidGhosts();
 				} else { 
 					score( SCORE_BUBBLE );
-					// playEatingSound();
 				}
 				BUBBLES_COUNTER --;
 				if ( BUBBLES_COUNTER === 0 ) { 
 					win();
 				}
-			} else { 
-				// stopEatingSound();
 			}
 			return;
 		}

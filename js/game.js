@@ -22,15 +22,7 @@ var TIME_LIFE = 0;
 var TIME_FRUITS = 0;
 
 var HELP_DELAY = 1500;
-// var HELP_TIMER = -1;
-			
-// function blinkHelp() { 
-// 	if ( $('.help-button').attr("class").indexOf("yo") > -1 ) { 
-// 		$('.help-button').removeClass("yo");
-// 	} else { 
-// 		$('.help-button').addClass("yo");
-// 	}
-// }
+
 
 function initGame(newgame) { 
 
@@ -40,8 +32,7 @@ function initGame(newgame) {
 		HOME = false;
 		GAMEOVER = false;
 
-		$('#help').fadeOut("slow");
-		
+
 		score(0);
 		clearMessage();
 		$("#home").hide();
@@ -128,6 +119,7 @@ function prepareNextLevel(i) {
 			LEVEL_NEXT_TIMER = -1;
 		}
 	}
+	gameover()
 }
 
 
@@ -153,11 +145,9 @@ function ready() {
 	LOCK = true;
 	message("ready!");
 	
-	// playReadySound();
 	setTimeout("go()", "4100");
 }
 function go() { 
-	// playSirenSound();
 
 	LOCK = false;
 	
@@ -167,7 +157,7 @@ function go() {
 	blinkSuperBubbles();
 
 	movePacman();
-
+	// StateGhost();
 	moveGhosts();
 }
 function startTimes() { 
@@ -209,7 +199,7 @@ function stopTimes() {
 function pauseGame() { 
 
 	if (!PAUSE) { 
-		// stopAllSound();
+
 		PAUSE = true;
 		
 		message("pause");
@@ -222,8 +212,6 @@ function pauseGame() {
 }
 function resumeGame() { 
 	if (PAUSE) { 
-		testStateGhosts();
-
 		PAUSE = false;
 		
 		clearMessage();
@@ -237,9 +225,6 @@ function resumeGame() {
 
 function lifes(l) { 
 	if (l) { 
-		if ( l > 0 ) { 
-			// playExtraLifeSound();
-		}
 		LIFES += l;
 	}
 	

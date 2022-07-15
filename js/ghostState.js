@@ -10,8 +10,8 @@ function initGhostState() {
 	$("#state").show();
 	var ctx = BOARD_GHOST_STATE_CTX;
 	var canvas = document.getElementById('canvas-ghost-state');
-	canvas.setAttribute('width', '300px');
-	canvas.setAttribute('height', '300px');
+	canvas.setAttribute('width', '400px');
+	canvas.setAttribute('height', '400px');
 	if (canvas.getContext) { 
 		BOARD_GHOST_STATE_CTX = canvas.getContext('2d');
 	}
@@ -51,25 +51,69 @@ function initGhostState() {
 	}
 	ctx.fillStyle = STATE_CLYDE_COLOR;
 	drawHelperGhost(ctx, 25, 25, 1, 0, 0, 0);
+	// drawGridState();
+	drawStateBoard();
+	StateGhost()
 }
 
 function getCanvasState(){
 	return BOARD_GHOST_STATE_CTX
 }
 
-function drawGridState(){
-    var ctx = getBoardCanevasContext()
-	for(var x=0; x <= 100 ; x = x+10){
-		ctx.moveTo(x,0)
-		ctx.lineTo(x,550)
+function drawStateBoard(){
+	var ctx = getCanvasState()
+	ctx.strokeStyle = "blue";
+	ctx.lineWidth = "5";
 
-		ctx.moveTo(1,x)
-		ctx.lineTo(550,x)
+	ctx.roundRect(10,10,380,380,5);
+	ctx.stroke()
+
+}
+
+function drawGridState(){
+	var ctx = getCanvasState()
+	for(var x=0; x <= 400 ; x = x+10){
+		ctx.moveTo(x,0)
+		ctx.lineTo(x,400)
+
+		ctx.moveTo(0,x)
+		ctx.lineTo(400,x)
 
 		ctx.strokeStyle="red";
 		ctx.lineWidth = "1";
 		ctx.stroke();
 	}
-	initGhosts();
-	drawGhosts();
+}
+
+function StateGhost(){ 
+	var ghost = [
+		{name:"blinky",
+		state:blinky},
+		{name:"inky",
+		state:inky},
+		{name:"pinky",
+		state:pinky},
+		{name:"clyde",
+		state:clyde}
+	]
+	var pacmanX = PACMAN_POSITION_X;
+	var pacmanY = PACMAN_POSITION_Y;
+
+	ghost.map((ghost,i) => {
+		eval('var state = GHOST_' + ghost.name.toUpperCase() + '_STATE');
+		eval('var ghostX = GHOST_' + ghost.name.toUpperCase() + '_POSITION_X');
+		eval('var ghostY = GHOST_' + ghost.name.toUpperCase() + '_POSITION_Y');
+		
+		if(state === 0){
+			if (Math.abs(ghostX - pacmanX) <= 150 && Math.abs(ghostY - pacmanY) <=150){
+				ghost.name === "inky" || ghost.name === "pinky"
+					? ghost.state = "Chan" 
+					: ghost.state = "Duoi"
+			} else ghost.state = "Tim"
+		} else if(state === 1) {ghost.state = "Hoang so"}
+		else ghost.state = "Spawn"
+	return (document.getElementById(ghost.name).innerHTML = ghost.state,
+			document.getElementById((i+1).toString()).innerHTML = ghost.name)
+	
+	})
 }

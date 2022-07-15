@@ -177,7 +177,6 @@ function nextSequencePresentation() {
 		clearInterval(HOME_PRESENTATION_TIMER);
 		HOME_PRESENTATION_TIMER = -1;
 		
-		// startTrailer();
 	} else { 
 		HOME_PRESENTATION_STATE ++;
 	}

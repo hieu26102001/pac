@@ -158,7 +158,7 @@ function drawGhost(ghost) {
 
 function affraidGhosts() { 
 	
-	// playWazaSound();
+
 	
 	SCORE_GHOST_COMBO = 200;
 
@@ -187,32 +187,13 @@ function cancelAffraidGhost(ghost) {
 		stopGhost(ghost);
 		eval('GHOST_' + ghost.toUpperCase() + '_STATE = 0');
 		moveGhost(ghost);
-		testStateGhosts();
 	}
 }
-function testStateGhosts() { 
 
-	if ( GHOST_BLINKY_STATE === 1 ||  
-		 GHOST_PINKY_STATE === 1 ||  
-		 GHOST_INKY_STATE === 1 ||  
-		 GHOST_CLYDE_STATE === 1 
-	) { 
-		// playWazaSound();
-	} else if ( GHOST_BLINKY_STATE === -1 ||  
-		 GHOST_PINKY_STATE === -1 ||  
-		 GHOST_INKY_STATE === -1 ||  
-		 GHOST_CLYDE_STATE === -1 
-	) { 
-		// playGhostEatenSound();		
-	} else { 
-		// playSirenSound();
-	}
-}
 
 function startEatGhost(ghost) { 
 	
 	if ( !LOCK ) { 
-		// playEatGhostSound();
 
 		LOCK = true;
 		
@@ -232,7 +213,6 @@ function startEatGhost(ghost) {
 
 function eatGhost(ghost) { 
 
-	// playGhostEatenSound();
 	
 	if (eval('GHOST_' + ghost.toUpperCase() + '_STATE === 1')) { 
 		$("#board span.combo").remove();
@@ -250,7 +230,6 @@ function cancelEatGhost(ghost) {
 		stopGhost(ghost);
 		eval('GHOST_' + ghost.toUpperCase() + '_STATE = 0');
 		moveGhost(ghost);
-		testStateGhosts();
 	}
 }
 
@@ -359,18 +338,17 @@ function changeDirection(ghost) {
 	eval('var state = GHOST_' + ghost.toUpperCase() + '_STATE');
 	eval('var ghostX = GHOST_' + ghost.toUpperCase() + '_POSITION_X');
 	eval('var ghostY = GHOST_' + ghost.toUpperCase() + '_POSITION_Y');
-	
+	StateGhost()
 	var tryDirection = oneDirection();
-	
 	if (state === 0 || state === 1) { 
 		if (ghostX != 276 && ghostY != 258) { 
 			var pacmanX = PACMAN_POSITION_X;
 			var pacmanY = PACMAN_POSITION_Y;
 			var axe = oneAxe();
+			
 			if (ghost === "blinky" || ghost === "clyde") { 
 			
-				var nothing = whatsYourProblem();
-				if (nothing < 6) { 
+				if (Math.abs(ghostX - pacmanX) <= 200 && Math.abs(ghostY - pacmanY) <=200) { 
 					tryDirection = getRightDirection(axe, ghostX, ghostY, pacmanX, pacmanY);
 					if ( !(canMoveGhost(ghost, tryDirection) && (direction != tryDirection -2 && direction != tryDirection + 2)) ) { 
 						axe ++;
@@ -379,9 +357,9 @@ function changeDirection(ghost) {
 					}
 				}
 				
-			} else if (ghost === "inky" || ghost === "pinky") { 
-				var good = anyGoodIdea();
-				if (good < 3) { 
+			} 
+			else if (ghost === "inky" || ghost === "pinky") { 
+				if (Math.abs(ghostX - pacmanX) <= 150 && Math.abs(ghostY - pacmanY) <=150) { 
 					tryDirection = getRightDirection(axe, ghostX, ghostY, pacmanX, pacmanY);
 					if ( !(canMoveGhost(ghost, tryDirection) && (direction != tryDirection -2 && direction != tryDirection + 2)) ) { 
 						axe ++;
@@ -507,7 +485,7 @@ function canMoveGhost(ghost, direction) {
 }
 
 function oneDirection() { 
-	return Math.floor( Math.random() * ( 4 - 1 + 1 ) + 1 );
+	return Math.floor( Math.random() *  4  + 1 );
 }
 function oneDirectionX() { 
 	var direction = oneDirection();

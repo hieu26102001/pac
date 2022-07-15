@@ -132,7 +132,6 @@ span.combo, span.fruits {
 	background-color: #000;
 	right: 0;
 	top:0;
-	width:280px;
 }
 
 #canvas-state-blinky, #canvas-state-pinky, #canvas-state-inky, #canvas-state-clyde { 
@@ -142,16 +141,39 @@ span.combo, span.fruits {
 }
 #ghost{
 	position: absolute;
-	top:70px;
+	top:100px;
 	display: flex;
 	flex-direction: column;
-	
+	left: 10px;
 }
 #state{
 	position: absolute;
 	right: 0px;
 	top: 200px;
 	margin-left: 20px;
+}
+#name{
+	display: flex;
+	align-items: center;
+}
+#name h4{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding-left: 9px;
+	padding-right: 9px;
+	margin-left: 2px;
+	border-left-width: 5px ;
+	border-left-color: blue;
+	border-left-style: solid;
+}
+#blinky, #inky, #clyde, #pinky{
+	padding-left: 9px;
+	padding-right: 9px;
+	border-width: 2px;
+	margin-left: 2px;
+	border-left-width: 5px ;
+	border-left-color: blue;
+	border-left-style: solid;
 }
 #canvas-ghost-state{
 	position: absolute;

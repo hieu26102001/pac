@@ -38,58 +38,8 @@ function initFruits() {
 		if (l > 13) l = 13;
 		i = -(l - 7);
 	}
+	drawFruit(ctx, "melon", x - ( i * 37), y, 27);
 	
-	drawFruit(ctx, "cherry", x - ( i * 37), y, 27);
-	i ++;
-	
-	if (LEVEL > 1) { 
-		drawFruit(ctx, "strawberry", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 2) { 
-		drawFruit(ctx, "orange", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 3) { 
-		drawFruit(ctx, "orange", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 4) { 
-		drawFruit(ctx, "apple", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 5) { 
-		drawFruit(ctx, "apple", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 6) { 
-		drawFruit(ctx, "melon", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 7) { 
-		drawFruit(ctx, "melon", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 8) { 
-		drawFruit(ctx, "galboss", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 9) { 
-		drawFruit(ctx, "galboss", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 10) { 
-		drawFruit(ctx, "bell", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 11) { 
-		drawFruit(ctx, "bell", x - ( i * 37), y, 27);
-		i ++;
-	}
-	if (LEVEL > 12) { 
-		drawFruit(ctx, "key", x - ( i * 37), y, 27);
-		i ++;
-	}
 }
 
 function getFruitsCanevasContext() { 
@@ -100,7 +50,7 @@ function getLevelFruitsCanevasContext() {
 }
 
 function eatFruit() { 
-	// playEatFruitSound();
+
 	
 	var s = 0;
 	if (FRUIT === "cherry")  s = 100;
@@ -130,16 +80,7 @@ function fruit() {
 function oneFruit() { 
 	if ( FRUIT_CANCEL_TIMER === null ) { 
 		var ctx = getFruitsCanevasContext();
-		
-		if (LEVEL === 1) FRUIT = "	";
-		else if (LEVEL === 2) FRUIT = "strawberry";
-		else if (LEVEL === 3 || LEVEL === 4) FRUIT = "orange";
-		else if (LEVEL === 5 || LEVEL === 6) FRUIT = "apple";
-		else if (LEVEL === 7 || LEVEL === 8) FRUIT = "melon";
-		else if (LEVEL === 9 || LEVEL === 10) FRUIT = "galboss";
-		else if (LEVEL === 11 || LEVEL === 12) FRUIT = "bell";
-		else if (LEVEL === 13) FRUIT = "key";
-		
+		FRUIT = "melon";
 		drawFruit(ctx, FRUIT, FRUITS_POSITION_X, FRUITS_POSITION_Y, FRUITS_SIZE);
 		FRUIT_CANCEL_TIMER = new Timer("cancelFruit()", FRUIT_CANCEL_SPEED);
 	}
@@ -154,17 +95,9 @@ function cancelFruit() {
 function eraseFruit() { 
 
 	var ctx = getFruitsCanevasContext();
-	//ctx.translate(FRUITS_POSITION_X - (FRUITS_SIZE / 2), FRUITS_POSITION_Y - (FRUITS_SIZE / 2));
-	//ctx.save();
-	//ctx.globalCompositeOperation = "destination-out";
-	
-	//ctx.beginPath();
-	//ctx.translate(FRUITS_POSITION_X - (FRUITS_SIZE / 2), FRUITS_POSITION_Y - (FRUITS_SIZE / 2));
+
 	ctx.clearRect(FRUITS_POSITION_X - (FRUITS_SIZE), FRUITS_POSITION_Y - (FRUITS_SIZE), FRUITS_SIZE * 2, FRUITS_SIZE * 2);
-	//ctx.fill();
-	//ctx.closePath();
-	
-	//ctx.restore();
+
 }
 
 function drawFruit(ctx, f, x, y, size) {  
