@@ -27,7 +27,7 @@ var HELP_DELAY = 1500;
 function initGame(newgame) { 
 
 	if (newgame) { 
-		stopTrailer();
+		stopPresentation();
 	
 		HOME = false;
 		GAMEOVER = false;

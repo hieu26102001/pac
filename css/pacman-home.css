@@ -71,7 +71,7 @@
 #canvas-presentation-clyde { 
 	top: 190px;
 }
-#presentation-character-blinky, #presentation-character-pinky, #presentation-character-inky, #presentation-character-clyde, 
+ 
 #presentation-name-blinky, #presentation-name-pinky, #presentation-name-inky, #presentation-name-clyde { 
 	position: absolute;
 	width: 180px;
@@ -81,23 +81,20 @@
 	font-size: 20px;
 	text-transform: uppercase;
 }
-#presentation-name-blinky, #presentation-name-pinky, #presentation-name-inky, #presentation-name-clyde { 
-	left: 310px;
-	width: 180px;
-}
-#presentation-character-blinky, #presentation-name-blinky { 
+
+ #presentation-name-blinky { 
 	top: 50px;
 	color: #ed1b24;
 }
-#presentation-character-pinky, #presentation-name-pinky { 
+ #presentation-name-pinky { 
 	top: 100px;
 	color: #feaec9;
 }
-#presentation-character-inky, #presentation-name-inky { 
+ #presentation-name-inky { 
 	top: 150px;
 	color: #40e5cf;
 }
-#presentation-character-clyde, #presentation-name-clyde { 
+ #presentation-name-clyde { 
 	top: 200px;
 	color: #f99c00;
 }

@@ -107,10 +107,10 @@ function StateGhost(){
 		if(state === 0){
 			if (Math.abs(ghostX - pacmanX) <= 150 && Math.abs(ghostY - pacmanY) <=150){
 				ghost.name === "inky" || ghost.name === "pinky"
-					? ghost.state = "Chan" 
-					: ghost.state = "Duoi"
-			} else ghost.state = "Tim"
-		} else if(state === 1) {ghost.state = "Hoang so"}
+					? ghost.state = "Block" 
+					: ghost.state = "Chase"
+			} else ghost.state = "Find"
+		} else if(state === 1) {ghost.state = "Affraid"}
 		else ghost.state = "Spawn"
 	return (document.getElementById(ghost.name).innerHTML = ghost.state,
 			document.getElementById((i+1).toString()).innerHTML = ghost.name)
