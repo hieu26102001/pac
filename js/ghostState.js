@@ -89,9 +89,9 @@ function StateGhost(){
 	var ghost = [
 		{name:"blinky",
 		state:blinky},
-		{name:"inky",
-		state:inky},
 		{name:"pinky",
+		state:inky},
+		{name:"inky",
 		state:pinky},
 		{name:"clyde",
 		state:clyde}
@@ -110,10 +110,10 @@ function StateGhost(){
 					? ghost.state = "Block" 
 					: ghost.state = "Chase"
 			} else ghost.state = "Find"
-		} else if(state === 1) {ghost.state = "Affraid"}
+		} else if(state === 1) {ghost.state = "Afraid"}
 		else ghost.state = "Spawn"
-	return (document.getElementById(ghost.name).innerHTML = ghost.state,
-			document.getElementById((i+1).toString()).innerHTML = ghost.name)
+	return (document.getElementById(ghost.name).innerHTML = ghost.state.toUpperCase(),
+			document.getElementById((i+1).toString()).innerHTML = ghost.name.toUpperCase())
 	
 	})
 }

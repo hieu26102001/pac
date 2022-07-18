@@ -36,10 +36,9 @@
 	position: absolute;
 	margin: auto;
 	padding: 0px;
-	left: 0px;
-	right: 0px;
+	left:50px;
 	top: 200px;
-	width: 500px;
+	width:max-content;
 	height: 250px;
 }
 #presentation-titles { 
