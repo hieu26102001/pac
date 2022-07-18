@@ -76,7 +76,7 @@ function initGame(newgame) {
 	initBubbles();
 	drawBubbles();
 	
-	initFruits();
+	// initFruits();
 	
 	initPacman();
 	drawPacman();

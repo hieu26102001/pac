@@ -98,7 +98,7 @@ function StateGhost(){
 	]
 	var pacmanX = PACMAN_POSITION_X;
 	var pacmanY = PACMAN_POSITION_Y;
-
+	
 	ghost.map((ghost,i) => {
 		eval('var state = GHOST_' + ghost.name.toUpperCase() + '_STATE');
 		eval('var ghostX = GHOST_' + ghost.name.toUpperCase() + '_POSITION_X');
