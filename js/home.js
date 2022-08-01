@@ -22,33 +22,7 @@ function initHome() {
 
 	
 	var ctx = null;
-	var canvas = document.getElementById('canvas-home-title-pacman');
-	canvas.setAttribute('width', '115');
-	canvas.setAttribute('height', '100');
-	if (canvas.getContext) { 
-		ctx = canvas.getContext('2d');
-	}
-	
-	var x = 50;
-	var y = 50;
-	
-	ctx.fillStyle = "#fff200";
-	ctx.beginPath();
-	ctx.arc(x, y, 45, (0.35 - (3 * 0.05)) * Math.PI, (1.65 + (3 * 0.05)) * Math.PI, false);
-	ctx.lineTo(x - 10, y);
-	ctx.fill();
-	ctx.closePath();
-	
-	x = 95;
-	y = 50;
-	
-	ctx.fillStyle = "#dca5be";
-	ctx.beginPath();
-	ctx.arc(x, y, 10, 0, 2 * Math.PI, false);
-	ctx.fill();
-	ctx.closePath();
-	
-	canvas = document.getElementById('canvas-presentation-blinky');
+	var canvas = document.getElementById('canvas-presentation-blinky');
 	canvas.setAttribute('width', '50');
 	canvas.setAttribute('height', '50');
 	if (canvas.getContext) { 

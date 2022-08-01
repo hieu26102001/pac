@@ -63,11 +63,13 @@ function getCanvasState(){
 function drawStateBoard(){
 	var ctx = getCanvasState()
 	ctx.strokeStyle = "blue";
-	ctx.lineWidth = "5";
+	ctx.lineWidth = "2";
 
 	ctx.roundRect(10,10,380,380,5);
 	ctx.stroke()
 
+	ctx.roundRect(15,15,375,375,5);
+	ctx.stroke()
 }
 
 function drawGridState(){

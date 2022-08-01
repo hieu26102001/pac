@@ -53,15 +53,7 @@ function eatFruit() {
 
 	
 	var s = 0;
-	if (FRUIT === "cherry")  s = 100;
-	else if (FRUIT === "strawberry")  s = 300;
-	else if (FRUIT === "orange")  s = 500;
-	else if (FRUIT === "apple")  s = 700;
-	else if (FRUIT === "melon")  s = 1000;
-	else if (FRUIT === "galboss")  s = 2000;
-	else if (FRUIT === "bell")  s = 3000;
-	else if (FRUIT === "key")  s = 5000;
-	
+	if (FRUIT === "melon")  s = 100;	
 	score(s, "fruit");
 	cancelFruit();
 }

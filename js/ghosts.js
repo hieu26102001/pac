@@ -56,10 +56,10 @@ var GHOST_CLYDE_TUNNEL = false;
 
 var GHOST_AFFRAID_COLOR = "#2d3eff";
 var GHOST_AFFRAID_FINISH_COLOR = "#fff";
-var GHOST_POSITION_STEP = 2;
-var GHOST_MOVING_SPEED = 15;
-var GHOST_TUNNEL_MOVING_SPEED = 35;
-var GHOST_AFFRAID_MOVING_SPEED = 40;
+var GHOST_POSITION_STEP = 1;
+var GHOST_MOVING_SPEED = 10;
+var GHOST_TUNNEL_MOVING_SPEED = 15;
+var GHOST_AFFRAID_MOVING_SPEED = 20;
 var GHOST_EAT_MOVING_SPEED = 6;
 var GHOST_AFFRAID_TIME = 8500;
 var GHOST_EAT_TIME = 5500;
@@ -348,7 +348,7 @@ function changeDirection(ghost) {
 			
 			if (ghost === "blinky" || ghost === "clyde") { 
 			
-				if (Math.abs(ghostX - pacmanX) <= 200 && Math.abs(ghostY - pacmanY) <=200) { 
+				if (Math.abs(ghostX - pacmanX) <= 150 && Math.abs(ghostY - pacmanY) <=150) { 
 					tryDirection = getRightDirection(axe, ghostX, ghostY, pacmanX, pacmanY);
 					if ( !(canMoveGhost(ghost, tryDirection) && (direction != tryDirection -2 && direction != tryDirection + 2)) ) { 
 						axe ++;
